@@ -66,7 +66,7 @@ class PortfolioScreen extends StatelessWidget {
             SizedBox(height: 20),
             CircleAvatar(
               radius: 80,
-              backgroundImage: AssetImage('assets/profile_image.jpg'),
+              backgroundImage: AssetImage('assets/images/profile_image.jpg'),
             ),
             SizedBox(height: 20),
             Text(

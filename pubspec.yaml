@@ -17,6 +17,6 @@ dev_dependencies:
     sdk: flutter
 
 flutter_icons:
+  image_path: "assets/images/profile_image.jpg"
   android: true
   ios: true
-  image_path: "assets/icon/icon.png"
