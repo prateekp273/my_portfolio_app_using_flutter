@@ -27,6 +27,8 @@ class PortfolioScreen extends StatelessWidget {
   final String email = "prateekp18012000@gmail.com";
   final String linkedIn = "https://www.linkedin.com/in/prateek-patel273/";
   final String github = "https://github.com/prateekp273";
+  final String resumeLink = "https://example.com/resume";
+  final String contactNumber = "+91 8090439359";
 
   final List<Map<String, dynamic>> projects = [
     {
@@ -39,7 +41,16 @@ class PortfolioScreen extends StatelessWidget {
       "description": "Write a brief description of your project.",
       "url": "https://project2.com",
     },
-    // Add more projects here
+    {
+      "title": "Project 3",
+      "description": "Write a brief description of your project.",
+      "url": "https://project3.com",
+    },
+    {
+      "title": "Project 4",
+      "description": "Write a brief description of your project.",
+      "url": "https://project4.com",
+    },
   ];
 
   @override
@@ -123,6 +134,18 @@ class PortfolioScreen extends StatelessWidget {
               },
             ),
             ListTile(
+              leading: Icon(Icons.phone),
+              title: Text('Contact Number'),
+              subtitle: Text(contactNumber),
+              onTap: () async {
+                final Uri _phoneLaunchUri = Uri(
+                  scheme: 'tel',
+                  path: contactNumber,
+                );
+                await launch(_phoneLaunchUri.toString());
+              },
+            ),
+            ListTile(
               leading: Icon(Icons.link),
               title: Text('LinkedIn'),
               subtitle: Text('Connect with me on LinkedIn'),
@@ -136,6 +159,14 @@ class PortfolioScreen extends StatelessWidget {
               subtitle: Text('View my GitHub profile'),
               onTap: () async {
                 await launch(github);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.insert_drive_file),
+              title: Text('Resume'),
+              subtitle: Text('View my resume'),
+              onTap: () async {
+                await launch(resumeLink);
               },
             ),
           ],
