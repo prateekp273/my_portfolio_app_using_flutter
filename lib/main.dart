@@ -13,13 +13,14 @@ class PortfolioApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      debugShowCheckedModeBanner: false, // Remove debug banner
       home: PortfolioScreen(),
     );
   }
 }
 
 class PortfolioScreen extends StatelessWidget {
-  final String name = "Your Name";
+  final String name = "Prateek Patel";
   final String title = "Flutter Developer";
   final String about = "Write a short description about yourself and your skills.";
 
