@@ -22,7 +22,7 @@ class PortfolioApp extends StatelessWidget {
 class PortfolioScreen extends StatelessWidget {
   final String name = "Prateek Patel";
   final String title = "Flutter Developer";
-  final String about = "Write a short description about yourself and your skills.";
+  final String about = "SDE Intern at VISANKA TECHNOLOGIES PVT LTD | Android Developer | Cross Platform App Developer | AI(open AI)| Full Stack Developer | SOLANA HACKDAY HACKATHON IIIT DELHI first prize winner✅ | HACKACCINO first prize winner✅";
 
   final List<Map<String, dynamic>> projects = [
     {
