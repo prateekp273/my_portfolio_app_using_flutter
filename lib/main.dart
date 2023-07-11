@@ -24,9 +24,9 @@ class PortfolioScreen extends StatelessWidget {
   final String title = "Passionate Android & Web Developer";
   final String about =
       "SDE Intern at VISANKA TECHNOLOGIES PVT LTD | Android Developer | Cross Platform App Developer | AI(open AI)| Full Stack Developer | SOLANA HACKDAY HACKATHON IIIT DELHI first prize winner✅ | HACKACCINO first prize winner✅";
-  final String email = "prateek@example.com";
-  final String linkedIn = "https://www.linkedin.com/in/prateekpatel";
-  final String github = "https://github.com/prateekpatel20";
+  final String email = "prateekp18012000@gmail.com";
+  final String linkedIn = "https://www.linkedin.com/in/prateek-patel273/";
+  final String github = "https://github.com/prateekp273";
 
   final List<Map<String, dynamic>> projects = [
     {
