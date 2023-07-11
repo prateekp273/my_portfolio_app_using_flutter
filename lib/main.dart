@@ -22,7 +22,8 @@ class PortfolioApp extends StatelessWidget {
 class PortfolioScreen extends StatelessWidget {
   final String name = "Prateek Patel";
   final String title = "Passionate Android & Web Developer";
-  final String about = "SDE Intern at VISANKA TECHNOLOGIES PVT LTD | Android Developer | Cross Platform App Developer | AI(open AI)| Full Stack Developer | SOLANA HACKDAY HACKATHON IIIT DELHI first prize winner✅ | HACKACCINO first prize winner✅";
+  final String about =
+      "SDE Intern at VISANKA TECHNOLOGIES PVT LTD | Android Developer | Cross Platform App Developer | AI(open AI)| Full Stack Developer | SOLANA HACKDAY HACKATHON IIIT DELHI first prize winner✅ | HACKACCINO first prize winner✅";
 
   final List<Map<String, dynamic>> projects = [
     {
@@ -82,17 +83,21 @@ class PortfolioScreen extends StatelessWidget {
               shrinkWrap: true,
               itemCount: projects.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(
-                    projects[index]['title'],
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                return Card(
+                  margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  elevation: 2,
+                  child: ListTile(
+                    title: Text(
+                      projects[index]['title'],
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: Text(projects[index]['description']),
+                    onTap: () async {
+                      if (await canLaunch(projects[index]['url'])) {
+                        await launch(projects[index]['url']);
+                      }
+                    },
                   ),
-                  subtitle: Text(projects[index]['description']),
-                  onTap: () async {
-                    if (await canLaunch(projects[index]['url'])) {
-                      await launch(projects[index]['url']);
-                    }
-                  },
                 );
               },
             ),
