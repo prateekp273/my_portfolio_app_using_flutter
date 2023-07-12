@@ -20,3 +20,6 @@ flutter_icons:
   image_path: "assets/images/profile_image.jpg"
   android: true
   ios: true
+
+assets:
+  - assets/images/
