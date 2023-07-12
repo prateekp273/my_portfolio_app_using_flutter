@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:url_launcher/url_launcher.dart';
+import 'package:transform_3d/transform_3d.dart';
 
 void main() {
   runApp(PortfolioApp());
@@ -27,7 +27,8 @@ class PortfolioScreen extends StatelessWidget {
   final String email = "prateekp18012000@gmail.com";
   final String linkedIn = "https://www.linkedin.com/in/prateek-patel273/";
   final String github = "https://github.com/prateekp273";
-  final String resumeLink = "https://drive.google.com/file/d/1vrTeJD74N2sqFg3D1MN6tJxXaM6Xs9aw/view?usp=drivesdk";
+  final String resumeLink =
+      "https://drive.google.com/file/d/1vrTeJD74N2sqFg3D1MN6tJxXaM6Xs9aw/view?usp=drivesdk";
   final String contactNumber = "8090439359";
 
   final List<Map<String, dynamic>> projects = [
@@ -64,9 +65,28 @@ class PortfolioScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 20),
-            const CircleAvatar(
-              radius: 80,
-              backgroundImage: AssetImage('assets/images/profile_image.jpg'),
+            Transform3D(
+              transform: Matrix4.identity()
+                ..setEntry(3, 2, 0.001)
+                ..rotateX(0.2),
+              child: Container(
+                width: 160,
+                height: 160,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/profile_image.jpg'),
+                    fit: BoxFit.cover,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 10,
+                      offset: Offset(0, 4),
+                    ),
+                  ],
+                ),
+              ),
             ),
             const SizedBox(height: 20),
             Text(
@@ -98,7 +118,8 @@ class PortfolioScreen extends StatelessWidget {
               itemCount: projects.length,
               itemBuilder: (context, index) {
                 return Card(
-                  margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  margin:
+                  const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   elevation: 2,
                   child: ListTile(
                     title: Text(
