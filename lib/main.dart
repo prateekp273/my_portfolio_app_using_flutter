@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+//import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(PortfolioApp());
@@ -57,84 +57,84 @@ class PortfolioScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Portfolio'),
+        title: const Text('Portfolio'),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 20),
-            CircleAvatar(
+            const SizedBox(height: 20),
+            const CircleAvatar(
               radius: 80,
-              backgroundImage: AssetImage('assets/images/profile_image.jpg'),
+              backgroundImage: AssetImage('assets/images/bg.jpg'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               name,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               title,
-              style: TextStyle(fontSize: 18, color: Colors.grey),
+              style: const TextStyle(fontSize: 18, color: Colors.grey),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
                 about,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16),
               ),
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Projects',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             ListView.builder(
               shrinkWrap: true,
               itemCount: projects.length,
               itemBuilder: (context, index) {
                 return Card(
-                  margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   elevation: 2,
                   child: ListTile(
                     title: Text(
                       projects[index]['title'],
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     subtitle: Text(projects[index]['description']),
                     onTap: () async {
-                      if (await canLaunch(projects[index]['url'])) {
-                        await launch(projects[index]['url']);
+                      if (await (projects[index]['url'])) {
+                        await (projects[index]['url']);
                       }
                     },
                   ),
                 );
               },
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Contact Me',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             ListTile(
-              leading: Icon(Icons.mail),
-              title: Text('Email'),
+              leading: const Icon(Icons.mail),
+              title: const Text('Email'),
               subtitle: Text(email),
               onTap: () async {
                 final Uri _emailLaunchUri = Uri(
                   scheme: 'mailto',
                   path: email,
                 );
-                await launch(_emailLaunchUri.toString());
+                await (_emailLaunchUri.toString());
               },
             ),
             ListTile(
-              leading: Icon(Icons.phone),
+              leading: const Icon(Icons.phone),
               title: Text('Contact Number'),
               subtitle: Text(contactNumber),
               onTap: () async {
@@ -142,31 +142,31 @@ class PortfolioScreen extends StatelessWidget {
                   scheme: 'tel',
                   path: contactNumber,
                 );
-                await launch(_phoneLaunchUri.toString());
+                await (_phoneLaunchUri.toString());
               },
             ),
             ListTile(
-              leading: Icon(Icons.link),
-              title: Text('LinkedIn'),
+              leading: const Icon(Icons.link),
+              title: const Text('LinkedIn'),
               subtitle: Text('Connect with me on LinkedIn'),
               onTap: () async {
-                await launch(linkedIn);
+                await (linkedIn);
               },
             ),
             ListTile(
-              leading: Icon(Icons.code),
-              title: Text('GitHub'),
-              subtitle: Text('View my GitHub profile'),
+              leading: const Icon(Icons.code),
+              title: const Text('GitHub'),
+              subtitle: const Text('View my GitHub profile'),
               onTap: () async {
-                await launch(github);
+                await (github);
               },
             ),
             ListTile(
-              leading: Icon(Icons.insert_drive_file),
-              title: Text('Resume'),
-              subtitle: Text('View my resume'),
+              leading: const Icon(Icons.insert_drive_file),
+              title: const Text('Resume'),
+              subtitle: const Text('View my resume'),
               onTap: () async {
-                await launch(resumeLink);
+                await (resumeLink);
               },
             ),
           ],
