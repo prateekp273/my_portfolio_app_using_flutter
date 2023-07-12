@@ -18,7 +18,36 @@ class PortfolioApp extends StatelessWidget {
   }
 }
 
-class PortfolioScreen extends StatelessWidget {
+class PortfolioScreen extends StatefulWidget {
+  @override
+  _PortfolioScreenState createState() => _PortfolioScreenState();
+}
+
+class _PortfolioScreenState extends State<PortfolioScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<double> _rotationAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      duration: const Duration(seconds: 2),
+      vsync: this,
+    );
+    _rotationAnimation = Tween<double>(
+      begin: 0,
+      end: 2 * 3.14159,
+    ).animate(_animationController);
+    _animationController.repeat(reverse: true);
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
   final String name = "Prateek Patel";
   final String title = "Passionate Android & Web Developer";
   final String about =
@@ -64,22 +93,25 @@ class PortfolioScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 20),
-            Container(
-              width: 160,
-              height: 160,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: AssetImage('assets/images/profile_image.jpg'),
-                  fit: BoxFit.cover,
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black26,
-                    blurRadius: 10,
-                    offset: Offset(0, 4),
+            RotationTransition(
+              turns: _rotationAnimation,
+              child: Container(
+                width: 160,
+                height: 160,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/profile_image.jpg'),
+                    fit: BoxFit.cover,
                   ),
-                ],
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 10,
+                      offset: Offset(0, 4),
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 20),
@@ -112,8 +144,7 @@ class PortfolioScreen extends StatelessWidget {
               itemCount: projects.length,
               itemBuilder: (context, index) {
                 return Card(
-                  margin:
-                  const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   elevation: 2,
                   child: ListTile(
                     title: Text(
