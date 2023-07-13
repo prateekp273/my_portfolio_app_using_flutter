@@ -13,7 +13,7 @@ class PortfolioApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      debugShowCheckedModeBanner: false, // Remove debug  banner
+      debugShowCheckedModeBanner: true, // Remove debug  banner
       home: PortfolioScreen(),
     );
   }
