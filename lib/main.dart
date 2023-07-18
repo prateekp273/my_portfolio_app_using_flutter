@@ -156,8 +156,8 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
     ),
     TextButton(
     onPressed: () async {
-    if (await canLaunch(projects[index]['url'])) {
-    await launch(projects[index]['url']);
+    if (await (projects[index]['url'])) {
+    await (projects[index]['url']);
     }
     },
     child: const Text('Visit Project'),
@@ -210,7 +210,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
     scheme: 'mailto',
     path: email,
     );
-    await launch(_emailLaunchUri.toString());
+    await (_emailLaunchUri.toString());
     },
     ),
     ListTile(
@@ -222,7 +222,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
     scheme: 'tel',
     path: contactNumber,
     );
-    await launch(_phoneLaunchUri.toString());
+    await (_phoneLaunchUri.toString());
     },
     ),
     ListTile(
@@ -230,7 +230,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
     title: const Text('LinkedIn'),
     subtitle: Text('Connect with me on LinkedIn'),
     onTap: () async {
-    await launch(linkedIn);
+    await (linkedIn);
     },
     ),
     ListTile(
@@ -238,7 +238,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
     title: const Text('GitHub'),
       subtitle: const Text('View my GitHub profile'),
       onTap: () async {
-        await launch(github);
+        await (github);
       },
     ),
       ListTile(
@@ -246,7 +246,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
         title: const Text('Resume'),
         subtitle: const Text('View my resume'),
         onTap: () async {
-          await launch(resumeLink);
+          await (resumeLink);
         },
       ),
     ],
